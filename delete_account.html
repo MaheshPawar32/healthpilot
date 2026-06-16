@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Your Account - HealthPilot</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; background: #f8f9fa; color: #333; line-height: 1.7; }
+        .header { background: linear-gradient(135deg, #1B3A6B 0%, #2D5BA3 100%); color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header p { opacity: 0.85; font-size: 14px; }
+        .container { max-width: 800px; margin: -20px auto 40px; padding: 0 16px; }
+        .card { background: white; border-radius: 16px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+        h2 { color: #1B3A6B; font-size: 20px; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #EEF2FB; }
+        h2:first-of-type { margin-top: 0; }
+        h3 { color: #2D5BA3; font-size: 16px; margin: 16px 0 8px; }
+        p { margin-bottom: 12px; font-size: 15px; }
+        ul, ol { margin: 8px 0 16px 24px; }
+        li { margin-bottom: 6px; font-size: 15px; }
+        .highlight { background: #EEF2FB; padding: 16px; border-radius: 10px; border-left: 4px solid #1B3A6B; margin: 16px 0; }
+        .warn { background: #FDECEC; padding: 16px; border-radius: 10px; border-left: 4px solid #D9534F; margin: 16px 0; }
+        .date { text-align: center; color: #666; font-size: 13px; margin-top: 24px; }
+        a { color: #2D5BA3; }
+        .del-form { display: flex; flex-direction: column; gap: 10px; margin: 12px 0 4px; }
+        .del-form input, .del-form textarea { font: inherit; padding: 12px 14px; border: 1px solid #d9e0ee; border-radius: 10px; background: #fff; resize: vertical; }
+        .del-form input:focus, .del-form textarea:focus { outline: none; border-color: #2D5BA3; }
+        .del-form button { font: inherit; font-weight: 600; color: #fff; background: #1B3A6B; border: none; border-radius: 10px; padding: 12px 16px; cursor: pointer; transition: background .15s; }
+        .del-form button:hover { background: #2D5BA3; }
+        .del-form button:disabled { opacity: .6; cursor: not-allowed; }
+        .del-msg { font-size: 14px; margin: 4px 0 0; }
+        .del-msg.ok { color: #2e7d32; }
+        .del-msg.err { color: #D9534F; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Delete Your Account</h1>
+        <p>HealthPilot - Navigate Your Health Journey Worldwide</p>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="highlight">
+                This page explains how to delete your <strong>HealthPilot</strong> account and the personal data associated with it.
+            </div>
+
+            <h2>1. Delete your account from within the app</h2>
+            <p>The fastest way to delete your account is directly in the HealthPilot app:</p>
+            <ol>
+                <li>Open the <strong>HealthPilot</strong> app and sign in.</li>
+                <li>Tap the <strong>Profile</strong> tab at the bottom.</li>
+                <li>Scroll to the bottom and tap <strong>Delete Account</strong>.</li>
+                <li>Confirm the action (you may be asked to re-enter your password to verify it's you).</li>
+            </ol>
+            <p>Your account and data are deleted <strong>immediately and permanently</strong> once you confirm.</p>
+
+            <h2>2. Request deletion by email</h2>
+            <p>If you can no longer access the app, you can request deletion by email. Send a message to
+                <a href="mailto:mahesh.selfdev@gmail.com?subject=HealthPilot%20Account%20Deletion%20Request">mahesh.selfdev@gmail.com</a>
+                from the email address linked to your account with the subject
+                <strong>"HealthPilot Account Deletion Request"</strong>.</p>
+            <p>We will verify your identity and delete your account within <strong>30 days</strong> of the request and confirm by email once it's done.</p>
+
+            <h3>Or submit a request here</h3>
+            <p>Enter the email address linked to your HealthPilot account and we'll process the deletion within 30 days.</p>
+            <form id="del-form" class="del-form">
+                <input type="email" id="del-email" placeholder="you@email.com" required>
+                <textarea id="del-note" rows="2" placeholder="Optional message (e.g. reason)"></textarea>
+                <button type="submit" id="del-btn">Send Deletion Request</button>
+                <p id="del-msg" class="del-msg"></p>
+            </form>
+
+            <h2>3. What data is deleted</h2>
+            <p>When your account is deleted, the following data is permanently removed:</p>
+            <ul>
+                <li>Profile information (name, email, age, gender, blood type, height, weight, conditions)</li>
+                <li>Medicines, schedules and adherence records</li>
+                <li>Health logs — blood sugar, blood pressure and weight readings</li>
+                <li>Sleep, step, water and food/nutrition logs</li>
+                <li>Mood and mental wellness entries</li>
+                <li>Goals and achievements</li>
+                <li>Appointments and emergency contacts</li>
+                <li>Family group membership and shared health data</li>
+                <li>Notifications and registered device/notification tokens</li>
+                <li>Subscription records</li>
+            </ul>
+
+            <h2>4. What may be retained</h2>
+            <p>We may retain a limited amount of data where required by law, for fraud prevention,
+                or for tax/financial records relating to any purchases (e.g. subscription transaction
+                records). Such data is kept only as long as legally required and is not used for any
+                other purpose. Purchase receipts managed by Google Play are governed by Google's own
+                policies.</p>
+
+            <div class="warn">
+                <strong>This action cannot be undone.</strong> Once deleted, your health data cannot be recovered.
+                If you want to keep a copy, export or note down your records before deleting your account.
+            </div>
+
+            <h2>5. Contact</h2>
+            <p>For any questions about account or data deletion, contact us at
+                <a href="mailto:mahesh.selfdev@gmail.com">mahesh.selfdev@gmail.com</a>.</p>
+            <p>See also our <a href="privacy_policy.html">Privacy Policy</a>.</p>
+
+            <div class="date">
+                <p>Last updated: June 2026</p>
+                <p>&copy; 2026 HealthPilot. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Posts the deletion request to the Supabase edge function
+        // (account-deletion-request), deployed public with --no-verify-jwt.
+        var ENDPOINT = "https://dfvgtdnsvislbaemjqwg.supabase.co/functions/v1/account-deletion-request";
+        var form = document.getElementById("del-form");
+        var btn = document.getElementById("del-btn");
+        var msg = document.getElementById("del-msg");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var email = document.getElementById("del-email").value.trim();
+            var note = document.getElementById("del-note").value.trim();
+            msg.textContent = "";
+            msg.className = "del-msg";
+            btn.disabled = true;
+            btn.textContent = "Sending…";
+            fetch(ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email, note: note })
+            })
+            .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, b: b }; }); })
+            .then(function (res) {
+                if (res.ok) {
+                    msg.textContent = res.b.message || "Your deletion request has been received.";
+                    msg.className = "del-msg ok";
+                    form.reset();
+                } else {
+                    msg.textContent = (res.b && res.b.error) || "Something went wrong. Please try again.";
+                    msg.className = "del-msg err";
+                }
+            })
+            .catch(function () {
+                msg.textContent = "Network error. Please try again or email us instead.";
+                msg.className = "del-msg err";
+            })
+            .finally(function () {
+                btn.disabled = false;
+                btn.textContent = "Send Deletion Request";
+            });
+        });
+    </script>
+</body>
+</html>
