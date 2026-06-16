@@ -69,6 +69,9 @@
                 <button type="submit" id="del-btn">Send Deletion Request</button>
                 <p id="del-msg" class="del-msg"></p>
             </form>
+            <p style="font-size:14px;color:#666;">Changed your mind? Requests are processed within 30 days, so if you cancel before then your account stays active. To cancel a pending request, email
+                <a href="mailto:mahesh.selfdev@gmail.com?subject=Cancel%20HealthPilot%20Account%20Deletion%20Request">mahesh.selfdev@gmail.com</a>
+                from the same address with the subject <strong>"Cancel Account Deletion Request"</strong>.</p>
 
             <h2>3. What data is deleted</h2>
             <p>When your account is deleted, the following data is permanently removed:</p>
@@ -113,6 +116,8 @@
         // Posts the deletion request to the Supabase edge function
         // (account-deletion-request), deployed public with --no-verify-jwt.
         var ENDPOINT = "https://dfvgtdnsvislbaemjqwg.supabase.co/functions/v1/account-deletion-request";
+        // Public publishable key — safe to embed; satisfies the API gateway.
+        var APIKEY = "sb_publishable_OH7qrb0YtwtZRYoEaRdvQw_K46qP4rc";
         var form = document.getElementById("del-form");
         var btn = document.getElementById("del-btn");
         var msg = document.getElementById("del-msg");
@@ -126,7 +131,11 @@
             btn.textContent = "Sending…";
             fetch(ENDPOINT, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": APIKEY,
+                    "Authorization": "Bearer " + APIKEY
+                },
                 body: JSON.stringify({ email: email, note: note })
             })
             .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, b: b }; }); })
